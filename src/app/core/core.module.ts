@@ -10,6 +10,8 @@ import { ForbiddenPageComponent } from './pages/forbidden-page/forbidden-page.co
 
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { HeaderComponent } from './layouts/header/header.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BaseInterceptor } from '@core/interceptors/base.interceptor';
 
 
 export const COMPONENTS = [
@@ -36,7 +38,13 @@ export class CoreModule {
   static forRoot() {
     return {
       ngModule: CoreModule,
-      providers: [],
+      providers: [
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: BaseInterceptor,
+          multi: true
+        },
+      ],
     };
   }
 }
