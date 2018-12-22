@@ -11,10 +11,16 @@ const routes: Routes = [
     path: '',
     component: HomepageComponent
   },
+
   {
     path: 'clients',
     loadChildren: './pages/clients/clients.module#ClientsModule'
   },
+  {
+    path: 'algorithms',
+    loadChildren: './pages/algorithms/algorithms.module#AlgorithmsModule'
+  },
+
   {
     path: '**',
     component: NotFoundPageComponent

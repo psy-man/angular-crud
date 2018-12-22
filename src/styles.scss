@@ -119,6 +119,15 @@ $border: 1px solid $border-color;
   text-align: right;
 }
 
+mat-radio-button {
+  display: block !important;
+  padding-bottom: 10px;
+}
+
+.solution-container {
+  padding: 20px;
+}
+
 a {
   text-decoration: none;
   color: #000000;
@@ -134,6 +143,10 @@ a {
   button {
     float: right;
   }
+}
+
+.centered {
+  text-align: center;
 }
 
 .grid-container {

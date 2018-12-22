@@ -44,7 +44,7 @@ export function clientListReducer(state = initialState, action: ClientActionType
     }
 
     case ClientListActionTypes.LoadClientsSuccess: {
-      return adapter.addMany(action.payload.data, {
+      return adapter.addMany(action.payload.data as Client[], {
         ...adapter.removeAll(state),
         isLoading: false,
         count: action.payload.count

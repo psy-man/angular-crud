@@ -6,7 +6,10 @@ import {
   MatIconModule,
   MatInputModule,
   MatProgressBarModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSliderModule,
+  MatTabsModule
 } from '@angular/material';
 
 
@@ -17,7 +20,10 @@ const COMPONENTS = [
   MatProgressBarModule,
   MatDialogModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatTabsModule,
+  MatRadioModule,
+  MatSliderModule
 ];
 
 
