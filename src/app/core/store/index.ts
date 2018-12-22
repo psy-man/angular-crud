@@ -17,5 +17,5 @@ export function logger(reducer: ActionReducer<GlobalState>): ActionReducer<Globa
 }
 
 export const metaReducers: MetaReducer<GlobalState>[] = !environment.production ? [
-  logger
+  // logger
 ] : [];

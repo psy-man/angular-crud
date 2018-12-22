@@ -1,16 +1,12 @@
-import { Contact } from './contact.model';
-
 export interface ClientApiModel {
   id: number;
   company: string;
   description: string;
   address: string;
 
-  contact: {
-    name: string;
-    phone: number;
-    email: string;
-  };
+  name: string;
+  email: string;
+  phone: number;
 }
 
 export class Client {
@@ -19,7 +15,9 @@ export class Client {
   description: string;
   address: string;
 
-  contact: Contact = null;
+  name: string;
+  email: string;
+  phone: number;
 
   constructor(raw: ClientApiModel) {
     this.id = raw.id;
@@ -27,6 +25,18 @@ export class Client {
     this.description = raw.description;
     this.address = raw.address;
 
-    this.contact = new Contact(raw.contact);
+    this.name = raw.name;
+    this.email = raw.email;
+    this.phone = raw.phone;
   }
+
+  get emailLink() {
+    return `mailto: ${this.email}`;
+  }
+
+  get telLink() {
+    return `tel: ${this.phone}`;
+  }
+
+
 }

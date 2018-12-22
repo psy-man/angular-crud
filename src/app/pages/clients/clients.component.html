@@ -1,9 +1,0 @@
-<app-main-layout>
-  <h1>Clients</h1>
-
-  <button mat-button>Add</button>
-
-  <ul *ngFor="let client of clients$ | async">
-    <li>{{ client.company }}</li>
-  </ul>
-</app-main-layout>

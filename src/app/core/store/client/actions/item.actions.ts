@@ -3,38 +3,79 @@ import { Client } from '@core/store/client/models/client.model';
 
 
 export enum ClientItemActionTypes {
-  LoadClient = '[Client] Load Client',
-  LoadClientSuccess = '[Client] Load Client Success',
-  LoadClientFailure = '[Client] Load Client Failure',
+  AddClient = '[Clients] Add Client',
+  AddClientSuccess = '[Clients] Add Client Success',
+  AddClientFailure = '[Clients] Add Client Failure',
 
-  SelectClient = '[Client] Select Client',
+  UpdateClient = '[Clients] Update Client',
+  UpdateClientSuccess = '[Clients] Update Client Success',
+  UpdateClientFailure = '[Clients] Update Client Failure',
+
+  DeleteClient = '[Clients] Delete Client',
+  DeleteClientSuccess = '[Clients] Delete Client Success',
+  DeleteClientFailure = '[Clients] Delete Client Failure',
 }
 
 ////////////
 
-export class LoadClient implements Action {
-  readonly type = ClientItemActionTypes.LoadClient;
-
-  constructor(public payload: number) {
-  }
-}
-
-export class LoadClientSuccess implements Action {
-  readonly type = ClientItemActionTypes.LoadClientSuccess;
+export class AddClient implements Action {
+  readonly type = ClientItemActionTypes.AddClient;
 
   constructor(public payload: Client) {
   }
 }
 
-export class LoadClientFailure implements Action {
-  readonly type = ClientItemActionTypes.LoadClientFailure;
+export class AddClientSuccess implements Action {
+  readonly type = ClientItemActionTypes.AddClientSuccess;
 
-  constructor(public payload: any) {
+  constructor(public payload: Client) {
   }
 }
 
-export class SelectClient implements Action {
-  readonly type = ClientItemActionTypes.SelectClient;
+export class AddClientFailure implements Action {
+  readonly type = ClientItemActionTypes.AddClientFailure;
+
+  constructor(public payload: string) {
+  }
+}
+
+export class UpdateClient implements Action {
+  readonly type = ClientItemActionTypes.UpdateClient;
+
+  constructor(public payload: Client) {
+  }
+}
+
+export class UpdateClientSuccess implements Action {
+  readonly type = ClientItemActionTypes.UpdateClientSuccess;
+
+  constructor(public payload: Client) {
+  }
+}
+
+export class UpdateClientFailure implements Action {
+  readonly type = ClientItemActionTypes.UpdateClientFailure;
+
+  constructor(public payload: string) {
+  }
+}
+
+export class DeleteClient implements Action {
+  readonly type = ClientItemActionTypes.DeleteClient;
+
+  constructor(public payload: number) {
+  }
+}
+
+export class DeleteClientSuccess implements Action {
+  readonly type = ClientItemActionTypes.DeleteClientSuccess;
+
+  constructor(public payload: number) {
+  }
+}
+
+export class DeleteClientFailure implements Action {
+  readonly type = ClientItemActionTypes.DeleteClientFailure;
 
   constructor(public payload: string) {
   }
@@ -43,7 +84,12 @@ export class SelectClient implements Action {
 ////////////
 
 export type ItemActions =
-  | LoadClient
-  | LoadClientSuccess
-  | LoadClientFailure
-  | SelectClient;
+  | AddClient
+  | AddClientSuccess
+  | AddClientFailure
+  | UpdateClient
+  | UpdateClientSuccess
+  | UpdateClientFailure
+  | DeleteClient
+  | DeleteClientSuccess
+  | DeleteClientFailure;
