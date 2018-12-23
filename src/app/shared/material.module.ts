@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { MyErrorStateMatcher } from './form-validators/error.matcher';
 import {
+  ErrorStateMatcher,
   MatButtonModule,
   MatDialogModule,
   MatFormFieldModule,
@@ -30,6 +32,9 @@ const COMPONENTS = [
 @NgModule({
   imports: COMPONENTS,
   exports: COMPONENTS,
+  providers: [
+    {provide: ErrorStateMatcher, useClass: MyErrorStateMatcher}
+  ]
 })
 
 export class MaterialModule {

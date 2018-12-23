@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PalindromeComponent } from './palindrome.component';
 
+
 describe('PalindromeComponent', () => {
   let component: PalindromeComponent;
   let fixture: ComponentFixture<PalindromeComponent>;

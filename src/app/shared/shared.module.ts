@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhonePipe } from './pipes/phone.pipe';
 
+
 const PIPES = [
   PhonePipe
 ];

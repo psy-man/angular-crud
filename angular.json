@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "deloitte": {
+    "crud": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/deloitte",
+            "outputPath": "dist/crud",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,23 +70,23 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "deloitte:build",
+            "browserTarget": "crud:build",
             "hmrWarning": false
           },
           "configurations": {
             "production": {
-              "browserTarget": "deloitte:build:production"
+              "browserTarget": "crud:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "deloitte:build:hmr"
+              "browserTarget": "crud:build:hmr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "deloitte:build"
+            "browserTarget": "crud:build"
           }
         },
         "test": {
@@ -122,5 +122,5 @@
       }
     }
   },
-  "defaultProject": "deloitte"
+  "defaultProject": "crud"
 }

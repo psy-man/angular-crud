@@ -67,7 +67,7 @@ export class ClientsPageComponent implements OnInit, OnDestroy {
 
   onItemSelected(client: Client) {
     this.dialog.open(ClientDetailsComponent, {
-      width: '450px',
+      width: '650px',
       data: client
     });
   }

@@ -4,6 +4,7 @@ import { select, Store } from '@ngrx/store';
 import * as fromClient from '../../../../core/store/client';
 import { Client } from '../../../../core/store/client/models/client.model';
 
+
 @Component({
   selector: 'app-client-add-panel',
   templateUrl: './client-add.component.html'

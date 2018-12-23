@@ -4,6 +4,7 @@ import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/s
 import * as fromList from './reducers/list.reducer';
 import * as fromItem from './reducers/item.reducer';
 
+
 export interface ClientState {
   list: fromList.ClientListState;
   item: fromItem.ClientItemState;

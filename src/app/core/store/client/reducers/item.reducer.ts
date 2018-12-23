@@ -22,6 +22,7 @@ export function clientItemReducer(state = initialState, action: ClientActionType
       };
     }
 
+    case ClientItemActionTypes.AddClientSuccess:
     case ClientItemActionTypes.UpdateClientSuccess: {
       return {
         ...state,

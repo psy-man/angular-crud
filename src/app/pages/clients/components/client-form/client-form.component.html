@@ -5,10 +5,13 @@
 <div mat-dialog-content>
   <mat-progress-bar *ngIf="isPending" mode="indeterminate"></mat-progress-bar>
 
+  <div>
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </div>
+
   <form [formGroup]="form" (ngSubmit)="submit()">
     <mat-form-field class="full-width">
-      <input matInput placeholder="Company Name" name="company" maxlength="100" formControlName="company"
-             [errorStateMatcher]="matcher">
+      <input matInput placeholder="Company Name" name="company" maxlength="100" formControlName="company">
 
       <mat-error *ngIf="form.get('company').hasError('maxlength')">
         Company Name is <strong>too long</strong>
@@ -21,8 +24,7 @@
     <mat-form-field class="full-width">
       <textarea matInput
                 cdkTextareaAutosize cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"
-                placeholder="Description" name="description" formControlName="description"
-                [errorStateMatcher]="matcher">
+                placeholder="Description" name="description" formControlName="description">
       </textarea>
 
       <mat-error *ngIf="form.get('description').hasError('required')">
@@ -31,7 +33,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Address" name="address" formControlName="address" [errorStateMatcher]="matcher">
+      <input matInput placeholder="Address" name="address" formControlName="address">
 
       <mat-error *ngIf="form.get('address').hasError('required')">
         Address is <strong>required</strong>
@@ -39,8 +41,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Contact Name" name="name" maxlength="200" formControlName="name"
-             [errorStateMatcher]="matcher">
+      <input matInput placeholder="Contact Name" name="name" maxlength="200" formControlName="name">
 
       <mat-error *ngIf="form.get('name').hasError('maxlength')">
         Contact Name is <strong>too long</strong>
@@ -51,8 +52,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Contact Email" name="email" maxlength="200" formControlName="email"
-             [errorStateMatcher]="matcher">
+      <input matInput placeholder="Contact Email" name="email" maxlength="200" formControlName="email">
       <mat-error *ngIf="form.get('email').hasError('maxlength') && !form.get('email').hasError('email')">
         Email is <strong>too long</strong>
       </mat-error>
@@ -65,23 +65,18 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput type="tel" placeholder="Contact Phone" name="phone" formControlName="phone"
-             [errorStateMatcher]="matcher">
+      <span matPrefix>+</span>
+      <input matInput [textMask]="{mask: mask}" placeholder="Contact Phone" name="phone" formControlName="phone">
 
       <mat-error *ngIf="form.get('phone').hasError('required')">
         Contact Phone is <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
-    <div>
-      <p *ngIf="error" class="error">
-        {{ error }}
-      </p>
-    </div>
   </form>
 </div>
 
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [disabled]="form.invalid" (click)="submit()">Save</button>
+  <button mat-stroked-button color="accent" [disabled]="form.invalid" (click)="submit()">Save</button>
 </div>

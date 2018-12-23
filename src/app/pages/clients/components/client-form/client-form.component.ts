@@ -1,14 +1,8 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Client } from '../../../../core/store/client/models/client.model';
-import { ErrorStateMatcher } from '@angular/material';
+import { EmailValidator } from '../../../../shared/form-validators/email.validator';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-client-form',
@@ -40,8 +34,7 @@ export class ClientFormComponent {
   @Output() submitted = new EventEmitter<Client>();
 
   isPending: boolean;
-
-  matcher = new MyErrorStateMatcher();
+  mask = [/[1-9]/, ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, ' ', '-', ' ', /\d/, /\d/, /\d/, /\d/];
 
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
@@ -49,7 +42,9 @@ export class ClientFormComponent {
     description: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
     name: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(200)])),
-    email: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(200)])),
+    email: new FormControl('', Validators.compose([
+      Validators.required, EmailValidator.validate, Validators.maxLength(200)
+    ])),
     phone: new FormControl('', Validators.required),
   });
 
@@ -58,6 +53,11 @@ export class ClientFormComponent {
 
   submit() {
     if (this.form.valid) {
+      const model = this.form.value;
+      if (typeof model.phone === 'string') {
+        model.phone = Number(model.phone.replace(/[^0-9]/g, ''));
+      }
+
       this.submitted.emit(this.form.value);
     }
   }

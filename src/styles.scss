@@ -86,6 +86,10 @@ $border: 1px solid $border-color;
   width: 100%;
 }
 
+.error {
+  color: $red;
+}
+
 .material-icons {
   font-family: 'Material Icons' !important;
   font-weight: normal;

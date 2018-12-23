@@ -1,5 +1,6 @@
 import { FormControl } from '@angular/forms';
 
+
 export class EmailValidator {
   public static validate(c: FormControl) {
     // tslint:disable-next-line

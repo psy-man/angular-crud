@@ -18,6 +18,7 @@ import { ClientAddComponent } from './containers/client-add/client-add.component
 import { ClientUpdateComponent } from './containers/client-update/client-update.component';
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
 import { SharedModule } from '../../shared/shared.module';
+import { TextMaskModule } from 'angular2-text-mask';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { SharedModule } from '../../shared/shared.module';
     ClientsRoutingModule,
     ReactiveFormsModule,
     NgxDatatableModule,
+    TextMaskModule,
 
     MaterialModule,
     SharedModule,
